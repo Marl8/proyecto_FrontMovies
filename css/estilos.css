@@ -104,6 +104,11 @@ body {
     text-align: center;
 }
 
+.main hr{
+    border-color: #36799f;
+    margin: 0.5rem 6rem 2rem;
+}
+
 .main .sectionPrincipal .tituloPrincipal {
     font-size: 3.3rem;
     font-weight: 700;
