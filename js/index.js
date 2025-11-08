@@ -37,7 +37,7 @@ const cargarPeliculasTendencia = async (page = 1) => {
 
         const titulo = document.createElement('h4');
         titulo.textContent = movie.title;
-        // relaciono los elementos
+
         path.appendChild(pelicula);
         pelicula.appendChild(img);
         pelicula.appendChild(tituloPelicula);
@@ -45,7 +45,7 @@ const cargarPeliculasTendencia = async (page = 1) => {
         tendenciasContainer.appendChild(path);
     });
 
-    // Actualizamos el atributo data-page con el número de página actual
+    // Se actualiza el atributo data-page con el número de página actual
     tendenciasContainer.parentElement.setAttribute('data-page', page);
 };
 
@@ -99,7 +99,6 @@ const mostrarResultadosBusqueda = (movies, query) => {
     botonesNavegacion.forEach(boton => {
         boton.style.display = 'none';
     });
-
     tendenciasContainer.innerHTML = '';
 
     if (movies.length === 0) {
@@ -184,8 +183,7 @@ formBuscador.addEventListener('submit', (e) => {
     if (query === '') {
         alert('Por favor, ingresa un término de búsqueda');
         return;
-    }
-    
+    }   
     buscarPeliculas(query);
     inputBuscador.value= ''
     document.getElementById('tendencias').scrollIntoView({ behavior: 'smooth' });
