@@ -1,0 +1,169 @@
+@import './estilos.css';
+
+/* ESTILOS ESCRITORIO Detalle Mario */
+.mainDetalle .detalle {
+    padding-top: 50px;
+    background: linear-gradient(to right top, rgba(109, 105, 105, 0.65), rgba(109, 105, 105, 0.65));
+    background-size: cover;
+    background-position: center;
+    height: 70vh;
+}
+
+.mainDetalle .detalle .contenedorDetalle {
+    width: 75%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 60px;
+}
+
+.mainDetalle .detalle .contenedorDetalle #detallePoster {
+    border-radius: 20px;
+    max-width: 300px;
+}
+
+.mainDetalle .detalle .contenedorDetalle .textoDetalle h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.mainDetalle .detalle .contenedorDetalle .textoDetalle h2 {
+    margin-top: 20px;
+}
+
+.mainDetalle .detalle .contenedorDetalle .textoDetalle .contenedorCreditos {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mainDetalle .trailer {
+    padding-top: 7rem;
+    padding-bottom: 100px;
+    width: 75%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 4.5rem;
+}
+
+.mainDetalle .trailer .contenedorTrailer .titulo-trailer{
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+.mainDetalle .trailer .contenedorInfo .iconsInfo {
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.mainDetalle .trailer .contenedorInfo .iconsInfo ul {
+    list-style: none;
+    display: flex;
+    column-gap: 1.5rem;
+}
+
+.mainDetalle .trailer .contenedorInfo .iconsInfo ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 2.5rem;
+    margin-right: 25px;
+}
+
+.mainDetalle .trailer .contenedorInfo .info .titulo-info {
+    font-weight: 700;
+    font-size: 20px;
+    padding-bottom: 1rem;
+}
+
+.mainDetalle .trailer .contenedorInfo .info table {
+    width: 100%;
+}
+
+.mainDetalle .trailer .contenedorInfo .info table tr td {
+    font-size: 1.1rem;
+    padding: 10px 0px;
+}
+
+/* ESTILOS MOBILE Y TABLETS DETALLE */
+@media screen and (max-width: 1200px) {
+    .mainDetalle .detalle {
+        height: initial;
+    }
+
+    .mainDetalle .detalle .contenedorDetalle {
+        flex-direction: column;
+        row-gap: 20px;
+    }
+
+    .mainDetalle .detalle .contenedorDetalle img {
+        width: 100%;
+        height: 300px;
+    }
+
+    .mainDetalle .detalle .contenedorDetalle .textoDetalle h1 {
+        font-size: 1.5rem;
+    }
+
+    .mainDetalle .detalle .contenedorDetalle .textoDetalle h2 {
+        font-size: 1rem;
+    }
+
+    .mainDetalle .detalle .contenedorDetalle .textoDetalle .contenedorCreditos {
+        flex-direction: column;
+        row-gap: 10px;
+    }
+
+    .mainDetalle .trailer {
+        width: 95%;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        flex-direction: column;
+        row-gap: 20px;
+    }
+
+    .mainDetalle .trailer .contenedorTrailer {
+        width: 100%;
+    }
+
+    .mainDetalle .trailer .contenedorTrailer h2 {
+        margin-bottom: 20px;
+    }
+
+    .mainDetalle .trailer .contenedorTrailer iframe {
+        width: 100%;
+        height: 300px;
+    }
+
+    .mainDetalle .trailer .contenedorInfo {
+        width: 100%;
+    }
+
+    .mainDetalle .trailer .contenedorInfo .iconsInfo {
+        width: 100%;
+    }
+
+    .mainDetalle .trailer .contenedorInfo .iconsInfo ul {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .mainDetalle .trailer .contenedorInfo .iconsInfo ul li a {
+        font-size: 2rem;
+        margin-right: 20px;
+    }
+
+    .mainDetalle .trailer .contenedorInfo .info table tr td {
+        font-size: 1rem;
+    }
+}
+
+hr {
+    border: 1px solid #36799f;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 40px;
+}
