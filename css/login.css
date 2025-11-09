@@ -56,18 +56,27 @@
     padding: 40px;
 }
 
+.bodyRegistrarse .main .seccionRegistrarse form input:not(.check, .boton){
+    padding: 1.5rem 1rem;
+    font-size: 1.2rem;
+}
+
 .bodyRegistrarse .main .seccionRegistrarse form input:not(.check, .boton),
 .bodyRegistrarse .main .seccionRegistrarse form select {
     width: 100%;
     margin-bottom: 10px;
-    height: 40px;
-    padding: 1.5rem 1rem;
-    font-size: 1.2rem;
     border-radius: 20px;
+    line-height: 40px;
     border: 2px solid #36799f;
     background-color: #333333;
     outline: none;
     color: rgb(255, 255, 255);
+}
+
+.bodyRegistrarse .main .seccionRegistrarse form #pais{
+    padding: 0 1rem;
+    height: 50px;
+    font-size: 1rem;
 }
 
 .bodyRegistrarse .main .seccionRegistrarse form .error input:not(.check, .boton),
