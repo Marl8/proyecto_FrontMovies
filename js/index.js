@@ -9,7 +9,8 @@ const options = {
 
 // Función para cargar películas en la cuadrícula de tendencias
 const cargarPeliculasTendencia = async (page = 1) => {
-    const response = await fetch(`${API}/movie/popular?page=${page}`, options);
+    try {
+        const response = await fetch(`${API}/movie/popular?page=${page}`, options);
     const data = await response.json();
     console.log(data);
     
@@ -47,11 +48,15 @@ const cargarPeliculasTendencia = async (page = 1) => {
 
     // Se actualiza el atributo data-page con el número de página actual
     tendenciasContainer.parentElement.setAttribute('data-page', page);
+    } catch (error) {
+        console.log('Error al cargar la películas: ', error);       
+    }   
 };
 
 // Función para cargar películas en el carrusel de películas mejores ranqueadas
-const cargarPeliculasAclamadas = async () => {
-    const response = await fetch(`${API}/movie/top_rated`, options);
+const cargarMejoresRanqueadas = async () => {
+    try {
+        const response = await fetch(`${API}/movie/top_rated`, options);
     const data = await response.json();
     
     const movies = data.results; 
@@ -70,6 +75,9 @@ const cargarPeliculasAclamadas = async () => {
         peliculaItem.appendChild(img);
         aclamadasContainer.appendChild(peliculaItem);
     });
+    } catch (error) {
+        console.log('Error al cargar mejores ranqueadas: ', error);
+    }
 };
 
 // Función para buscar películas
@@ -90,6 +98,7 @@ const buscarPeliculas = async (query) => {
 };
 
 const mostrarResultadosBusqueda = (movies, query) => {
+
     const tendenciasContainer = document.querySelector('.peliculasTendencia .peliculas');
     const tituloSection = document.querySelector('.peliculasTendencia .tituloSection');
     const botonesNavegacion = document.querySelectorAll('.peliculasTendencia .boton');
@@ -204,5 +213,5 @@ linkTendencias.addEventListener('click', ()=>{
 
 document.addEventListener('DOMContentLoaded', () => {
     cargarPeliculasTendencia();
-    cargarPeliculasAclamadas();
+    cargarMejoresRanqueadas();
 });

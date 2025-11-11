@@ -99,11 +99,9 @@ const cargarDetallePelicula = async () => {
         }
 
         // 2. Cargar Créditos
-
         cargarCreditos(movieId);
 
         // 3. Cargar el video
-        
         cargarVideo(movieId);
 
     } catch (error) {
@@ -149,8 +147,8 @@ async function cargarCreditos(movieId){
             console.error("No se encontró Creditos");
         }
 
-    } catch (creditError) {
-        console.error("Error al cargar los créditos:", creditError);
+    } catch (error) {
+        console.error("Error al cargar los créditos:", error);
     }
 }
 
@@ -182,8 +180,8 @@ async function cargarVideo(movieId){
         } else {
             console.error("No se encontró el elemento con ID 'detalleTrailer'");
         }
-    } catch (videoError) {
-            console.error("Error al cargar el video/trailer:", videoError);
+    } catch (error) {
+            console.error("Error al cargar el video/trailer:", error);
     }
 }; 
 
