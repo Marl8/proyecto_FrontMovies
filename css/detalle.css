@@ -32,6 +32,18 @@
     margin-top: 20px;
 }
 
+.mainDetalle .detalle .contenedorDetalle .textoDetalle #productoras{
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.mainDetalle .detalle .contenedorDetalle .textoDetalle #productoras img{
+    margin-top: 3.5rem;
+    width: 80px;
+    max-height: 80px;
+}
+
 .mainDetalle .detalle .contenedorDetalle .textoDetalle .contenedorCreditos {
     margin-top: 20px;
     display: flex;
@@ -146,18 +158,26 @@
     }
 
     .mainDetalle .trailer .contenedorInfo .iconsInfo ul {
-        width: 100%;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
     }
 
-    .mainDetalle .trailer .contenedorInfo .iconsInfo ul li a {
-        font-size: 2rem;
-        margin-right: 20px;
+    .mainDetalle .trailer .contenedorInfo .iconsInfo ul li a{
+        margin-right: auto;
     }
 
     .mainDetalle .trailer .contenedorInfo .info table tr td {
         font-size: 1rem;
+    }
+
+    .mainDetalle .trailer .contenedorInfo .info table {
+        width: 100%;
+        text-align: center;
+    }
+
+    .mainDetalle .detalle .contenedorDetalle .textoDetalle #productoras{
+        flex-direction: column;
+        gap: 0;
     }
 }
 

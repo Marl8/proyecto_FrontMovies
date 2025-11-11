@@ -36,7 +36,7 @@ const cargarDetallePelicula = async () => {
         console.log("Detalles principales de la película:", movieData);
 
         // Aplicar Título
-        document.getElementById('detalleTitulo').textContent = movieData.title || movieData.original_title;
+        document.getElementById('detalleTitulo').textContent = movieData.original_language === 'en' ? movieData.original_title : movieData.title;
 
         // Información general 
         const releaseDate = movieData.release_date ? new Date(movieData.release_date).toLocaleDateString('es-ES') : 'Fecha desconocida';
@@ -72,10 +72,29 @@ const cargarDetallePelicula = async () => {
             console.error("No se encontró el elemento con clase '.mainDetalle .detalle'");
         }
 
+        // Productoras
+        const productoras = document.getElementById('productoras');
+        movieData.production_companies.forEach(p =>{
+            if(p.logo_path){
+                const li = document.createElement('li');
+                const img = document.createElement('img');
+                img.src = `${IMG_API_POSTER}${p.logo_path}`;
+                li.appendChild(img);
+                productoras.appendChild(li);
+            }
+        });
+
+
         // Link IMDB
         const imdbInfo = document.getElementById('imdb-link');
         if(imdbInfo){
             imdbInfo.href = `${IMDB_URL}/${movieData.imdb_id}`;
+        }
+
+        // Link homepage
+        const homepage = document.getElementById('homepage-link');
+        if(homepage){
+            homepage.href = `${movieData.homepage}`;
         }
 
         // Información adicional en la tabla
@@ -162,7 +181,7 @@ async function cargarVideo(movieId){
         const videosData = await videosResponse.json();
         console.log("Videos de la película:", videosData); 
 
-        const trailer = videosData.results.findLast(video => video.type === 'Trailer' && video.site === 'YouTube'); 
+        const trailer = videosData.results.find(video => video.type === 'Trailer' && video.site === 'YouTube'); 
         console.log("Trailer encontrado:", trailer); 
 
         const trailerIframe = document.getElementById('detalleTrailer'); 
