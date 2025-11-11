@@ -1,0 +1,16 @@
+@import './estilos.css';
+
+/* ESTILOS PARA MAIN ESCRITORIO */
+
+.main .sectionPrincipal {
+    color: white;
+    background: linear-gradient(to right top, rgba(0, 0, 0, 0.54), rgba(0, 0, 0, 0.54)), url(../assets/img/mejores-series2.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+        <link rel="stylesheet" href="../css/series.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap" rel="stylesheet">
+        <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+        <title>FrontMovies | Series</title>
+    </head>
+    <body>
+        <header class="header">
+            <nav class="navegacion">
+                <a class="logo" href="#">
+                    <img src="../assets/img/FrontMovies.png" alt="Logo Principal">
+                </a>
+                <ul class="listaNav">
+                    <li class="listaItem"><a class="linkNav" id="link-tendencias" href="../index.html">Tendencias</a></li>
+                    <li class="listaItem"><a class="linkNav" id="link-series" href="#">Series</a></li>
+                    <li class="listaItem"><a class="linkNav" href="../pages/registrarse.html">Registrarse</a></li>
+                    <li class="listaItem"><a class="linkNav iniciarSesion" href="../pages/iniciosesion.html">Iniciar Sesión</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main id="main" class="main">
+            <section data-aos="zoom-in"  data-aos-duration="1000" class="sectionPrincipal">
+                <h1 class="tituloPrincipal">Todas tus series favoritas</h1>
+                <h4 class="subtituloPrincipal">En solo lugar y sin publicidad</h4>
+                <p class="cancela">Estrenos todas las semanas</p>
+            </section>
+            <section data-aos="fade-up" data-aos-offset="300" data-aos-delay="50" data-aos-duration="1000" class="buscadorPrincipal">
+                <div class="container-tituloSection">
+                    <h2 class="tituloSection">¿Qué estas buscando para ver?</h2>
+                </div>            
+                <form class="buscadorPeliculas">
+                    <input class="inputBuscador" type="text" placeholder="Buscar..." id="buscar" name="buscar">
+                    <input class="botonBuscador" type="submit" value="Buscar">
+                </form>
+            </section>
+            <hr>
+            <section id="tendencias" data-aos="fade-up" data-aos-offset="400" data-aos-delay="100" data-aos-duration="1000" class="peliculasTendencia">
+                <h3 class="tituloSection">Las tendencias de hoy</h3>
+                <div class="peliculas" id="tendenciasContainer">
+                    <!-- Aquí se cargarán las películas tendencia -->
+                </div>
+                <button id="botonAnterior" class="boton anterior">Anterior</button>  
+                <button id="botonSiguiente" class="boton siguiente">Siguiente</button>
+            </section>
+            <hr id="separador">
+            <section data-aos="fade-up" data-aos-offset="200" data-aos-delay="100" data-aos-duration="2000" class="peliculasAclamadas">
+                <h3 class="tituloSection">Las mejores ranqueadas</h3>
+                <div class="aclamadas" id="aclamadasContainer">
+                    <!-- Aquí se cargarán las películas mejores ranqueadas -->
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <nav class="navegacion">
+                <ul class="listaNav">
+                    <li class="listaItem"><a class="linkNav" href="">Términos y condiciones</a></li>
+                    <li class="listaItem"><a class="linkNav" href="">FAQs</a></li>
+                    <li class="listaItem"><a class="linkNav" href="https://www.argentina.gob.ar/economia/industria-y-comercio/defensadelconsumidor" target="_blank">Defensa al Consumidor</a></li>
+                    <li class="listaItem"><a class="linkNav" href="">Ayuda</a></li>
+                </ul>
+            </nav>
+            <a href="#main" class="flechaArriba">
+                <img src="../assets/img/flecha-hacia-arriba.png" alt="ir arriba flecha">
+            </a>
+            <div class="redes">
+				<i class="fab fa-facebook"></i>
+				<i class="fa-brands fa-x-twitter"></i>
+				<i class="fab fa-instagram"></i>
+			</div>
+            <p class="video">Copyright &copy; 2025 Todos los derechos reservados - Proyecto de Grupo</p>
+        </footer>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init();
+        </script>
+        <script src="./js/index.js"></script>
+    </body>
+</html>
