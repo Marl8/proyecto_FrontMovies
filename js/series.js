@@ -2,36 +2,36 @@ const API = 'https://api.themoviedb.org/3';
 import { options } from './httpCliente.js';
 
 // Función para cargar películas en la cuadrícula de tendencias
-const cargarPeliculasTendencia = async (page = 1) => {
+const cargarSeriesTendencia = async (page = 1) => {
     try {
-        const response = await fetch(`${API}/movie/popular?page=${page}`, options);
-    const data = await response.json();
-    console.log(data);
-    
-    const movies = data.results;
-    console.log(movies);
-    const tendenciasContainer = document.querySelector('.tendencias .peliculas');
-    tendenciasContainer.innerHTML = '';
+        const response = await fetch(`${API}/tv/popular?page=${page}`, options);
+        const data = await response.json();
+        console.log(data);
+        
+        const series = data.results;
+        console.log(series);
+        const tendenciasContainer = document.querySelector('.tendencias .peliculas');
+        tendenciasContainer.innerHTML = '';
 
-    movies.forEach(movie => {
+        series.forEach(serie => {
 
         const path = document.createElement('a');
-        path.href = `./pages/detalle.html?id=${movie.id}`;
+        // path.href = `./pages/detalle.html?id=${serie.id}`;
 
         const pelicula = document.createElement('div');
         pelicula.classList.add('pelicula');
 
         const img = document.createElement('img');
         img.classList.add('imgTendencia');
-        img.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
-        img.alt = movie.title;
+        img.src = `https://image.tmdb.org/t/p/w500/${serie.poster_path}`;
+        img.alt = serie.name;
         img.loading = 'lazy';
 
         const tituloPelicula = document.createElement('div');
         tituloPelicula.classList.add('tituloPelicula');
 
         const titulo = document.createElement('h4');
-        titulo.textContent = movie.title;
+        titulo.textContent = serie.name;
 
         path.appendChild(pelicula);
         pelicula.appendChild(img);
@@ -43,55 +43,28 @@ const cargarPeliculasTendencia = async (page = 1) => {
     // Se actualiza el atributo data-page con el número de página actual
     tendenciasContainer.parentElement.setAttribute('data-page', page);
     } catch (error) {
-        console.log('Error al cargar la películas: ', error);       
+        console.log('Error al cargar la series: ', error);       
     }   
 };
 
-// Función para cargar películas en el carrusel de películas mejores ranqueadas
-const cargarMejoresRanqueadas = async () => {
-    try {
-        const response = await fetch(`${API}/movie/top_rated`, options);
-    const data = await response.json();
-    
-    const movies = data.results; 
-    const aclamadasContainer = document.querySelector('.aclamadas'); 
-    
-    movies.forEach(movie => {
-        const peliculaItem = document.createElement('div');
-        peliculaItem.classList.add('peliculaItem');
-
-        const img = document.createElement('img');
-        img.classList.add('imgAclamada');
-        img.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
-        img.alt = movie.title;
-        img.loading = 'lazy';
-
-        peliculaItem.appendChild(img);
-        aclamadasContainer.appendChild(peliculaItem);
-    });
-    } catch (error) {
-        console.log('Error al cargar mejores ranqueadas: ', error);
-    }
-};
-
-// Función para buscar películas
-const buscarPeliculas = async (query) => {
+// Función para buscar series
+const buscarSeries = async (query) => {
     try {
         const encodedQuery = encodeURIComponent(query);
 
-        const response = await fetch(`${API}/search/movie?query=${encodedQuery}&language=es-ES`, options);
+        const response = await fetch(`${API}/search/tv?query=${encodedQuery}&language=es-ES`, options);
         const data = await response.json();
         
         console.log('Resultados de búsqueda:', data);
         
         mostrarResultadosBusqueda(data.results, query);
     } catch (error) {
-        console.error('Error al buscar películas:', error);
-        alert('Hubo un error al buscar películas. Por favor, intenta de nuevo.');
+        console.error('Error al buscar series:', error);
+        alert('Hubo un error al buscarsries. Por favor, intenta de nuevo.');
     }
 };
 
-const mostrarResultadosBusqueda = (movies, query) => {
+const mostrarResultadosBusqueda = (series, query) => {
 
     const tendenciasContainer = document.querySelector('.tendencias .peliculas');
     const tituloSection = document.querySelector('.tendencias .tituloSection');
@@ -104,58 +77,56 @@ const mostrarResultadosBusqueda = (movies, query) => {
     });
     tendenciasContainer.innerHTML = '';
 
-    if (movies.length === 0) {
-        tendenciasContainer.innerHTML = '<p class="no-resultados">No se encontraron películas con ese término de búsqueda.</p>';
+    if (series.length === 0) {
+        tendenciasContainer.innerHTML = '<p class="no-resultados">No se encontraron Series con ese término de búsqueda.</p>';
         return;
     }
-
-    movies.forEach(movie => {
-        if (!movie.poster_path) return;
+    series.forEach(serie => {
+        if (!serie.poster_path) return;
         
         const path = document.createElement('a');
-        path.href = `./pages/detalle.html?id=${movie.id}`;
+        //path.href = `./pages/detalle.html?id=${serie.id}`;
         
-        const pelicula = document.createElement('div');
-        pelicula.classList.add('pelicula');
+        const serieElement = document.createElement('div');
+        serieElement.classList.add('pelicula');
         
         const img = document.createElement('img');
         img.classList.add('imgTendencia');
-        img.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
-        img.alt = movie.title;
+        img.src = `https://image.tmdb.org/t/p/w500/${serie.poster_path}`;
+        img.alt = serie.name;
         img.loading = 'lazy';
 
         const tituloPelicula = document.createElement('div');
         tituloPelicula.classList.add('tituloPelicula');
         
         const titulo = document.createElement('h4');
-        titulo.textContent = movie.title;
+        titulo.textContent = serie.name;
         
         const info = document.createElement('p');
         info.classList.add('infoPelicula');
 
-        const separador = document.getElementById('separador');
-        separador.style.marginTop = "1.5rem";
+        tendenciasContainer.style.marginBottom = "2.5rem";
 
-        path.appendChild(pelicula);
-        pelicula.appendChild(img);
-        pelicula.appendChild(tituloPelicula);
+        path.appendChild(serieElement);
+        serieElement.appendChild(img);
+        serieElement.appendChild(tituloPelicula);
         tituloPelicula.appendChild(titulo);
         tituloPelicula.appendChild(info);
         tendenciasContainer.appendChild(path);
     });    
-};
+}; 
 
 // Función para restaurar las tendencias
 const restaurarTendencias = () => {
-    const tituloSection = document.querySelector('.endencia .tituloSection');
-    const botonesNavegacion = document.querySelectorAll('.endencia .boton');
+    const tituloSection = document.querySelector('.tendencias .tituloSection');
+    const botonesNavegacion = document.querySelectorAll('.tendencias .boton');
 
     tituloSection.textContent = 'Las tendencias de hoy';
     
     botonesNavegacion.forEach(boton => {
         boton.style.display = 'inline-block';
     });
-    cargarPeliculasTendencia(1);
+    cargarSeriesTendencia(1);
 };
 
 
@@ -166,20 +137,20 @@ const botonSiguiente = document.getElementById('botonSiguiente');
 const seccionTendencias = document.getElementById('tendencias');
 const formBuscador = document.querySelector('.buscadorPeliculas');
 const inputBuscador = document.getElementById('buscar');
-const linkTendencias = document.getElementById('link-tendencias');
+const linkSeries = document.getElementById('link-series');
 
 // Event listener para el botón "Anterior"
 botonAnterior.addEventListener('click', () => {
     // Obtener el número de página actual
     let currentPage = Number(seccionTendencias.getAttribute('data-page'));
     if (currentPage <= 1) return;
-    cargarPeliculasTendencia(currentPage - 1);
+    cargarSeriesTendencia(currentPage - 1);
 });
 
 // Event listener para el botón "Siguiente"
 botonSiguiente.addEventListener('click', () => {
     let currentPage = Number(seccionTendencias.getAttribute('data-page'));
-    cargarPeliculasTendencia(currentPage + 1);
+    cargarSeriesTendencia(currentPage + 1);
 });
 
 formBuscador.addEventListener('submit', (e) => {
@@ -190,7 +161,7 @@ formBuscador.addEventListener('submit', (e) => {
         alert('Por favor, ingresa un término de búsqueda');
         return;
     }   
-    buscarPeliculas(query);
+    buscarSeries(query);
     inputBuscador.value= ''
     document.getElementById('tendencias').scrollIntoView({ behavior: 'smooth' });
 });
@@ -203,12 +174,10 @@ inputBuscador.addEventListener('focus', () => {
 });
 
 // Event listener para restaurar tendencias al hacer clic en el link tendencias del nav 
-linkTendencias.addEventListener('click', ()=>{
+linkSeries.addEventListener('click', ()=>{
     restaurarTendencias();
 })
 
-
 document.addEventListener('DOMContentLoaded', () => {
-    cargarPeliculasTendencia();
-    cargarMejoresRanqueadas();
+    cargarSeriesTendencia();
 });
