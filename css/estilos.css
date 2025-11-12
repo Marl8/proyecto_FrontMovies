@@ -419,31 +419,51 @@ body {
     cursor: pointer;
 }
 
+/* Botón hamburguesa para mobile */
+.btn-toggle-menu {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    padding: 0.5rem;
+    display: none;
+}
+
+
+/* ======= MEDIA QUERIES ============*/
+
 
 @media (max-width: 768px) {
     .header {
         height: initial;
     }
 
+    .btn-toggle-menu {
+        display: block;
+    }
+
     .header .navegacion {
-        
-        margin-right: 10px;
         flex-direction: column;
         justify-content: center;
         row-gap: 20px;
     }
 
-    .header .navegacion .anclaLogo img{
-        margin-right: 1rem;
-}
+    .header .navegacion .listaNav {
+        display: none;
+    }
+
+    .header .navegacion.active ul {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .header .navegacion .logo {
+        margin-right: 0;
+    }
 
     .header .navegacion ul{
         flex-direction: column;
         row-gap: 20px;
-    }
-
-    .header .navegacion .logo {
-        margin-right: 1.2rem;
     }
 
     .header .navegacion .listaNav {

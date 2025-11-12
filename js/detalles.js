@@ -196,5 +196,14 @@ async function cargarVideo(movieId){
     }
 }; 
 
-
 document.addEventListener('DOMContentLoaded', cargarDetallePelicula); 
+
+const menuToggleButton = document.getElementById("menu-toggle");
+const nav = document.querySelector(".header .navegacion");
+
+
+// Agregar un evento al botón hamburguesa
+menuToggleButton.addEventListener("click", function() {
+    nav.classList.toggle("active");
+});
+

@@ -167,6 +167,9 @@ const seccionTendencias = document.getElementById('tendencias');
 const formBuscador = document.querySelector('.buscadorPeliculas');
 const inputBuscador = document.getElementById('buscar');
 const linkTendencias = document.getElementById('link-tendencias');
+const menuToggleButton = document.getElementById("menu-toggle");
+const nav = document.querySelector(".header .navegacion");
+
 
 // Event listener para el botón "Anterior"
 botonAnterior.addEventListener('click', () => {
@@ -206,6 +209,11 @@ inputBuscador.addEventListener('focus', () => {
 linkTendencias.addEventListener('click', ()=>{
     restaurarTendencias();
 })
+
+// Agregar un evento al botón hamburguesa
+menuToggleButton.addEventListener("click", function() {
+    nav.classList.toggle("active");
+});
 
 
 document.addEventListener('DOMContentLoaded', () => {
