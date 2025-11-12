@@ -1,15 +1,8 @@
 const API = 'https://api.themoviedb.org/3';
-const IMG_API = 'https://image.tmdb.org/t/p/original'; 
-const IMG_API_POSTER = 'https://image.tmdb.org/t/p/w500'; 
+const IMG_API = 'https://image.tmdb.org/t/p/w500'; 
 const IMG_API_BACKDROP = 'https://image.tmdb.org/t/p/original'; 
 const IMDB_URL = 'https://www.imdb.com/es/title';
-const options = {
-    method: 'GET',
-    headers: {
-        accept: 'application/json',
-        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyZTUzYjRkOWY1MDlkNGVmM2NjZGQ2MGMyM2M4OTU5NyIsInN1YiI6IjY1OTcyZjkyNWNjMTFkNzdkODdkM2RlOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.3Tdpyr0grmKEYzMXhv5CPIIJfvZbkueIlzfdNFuj1iw',
-    }
-};
+import { options } from './httpCliente.js';
 
 const getMovieId = () => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -51,7 +44,7 @@ const cargarDetallePelicula = async () => {
         const posterImg = document.getElementById('detallePoster');
         if (posterImg) { 
             if (movieData.poster_path) {
-                posterImg.src = `${IMG_API_POSTER}/${movieData.poster_path}`; 
+                posterImg.src = `${IMG_API}/${movieData.poster_path}`; 
                 posterImg.alt = movieData.title || movieData.original_title;
             } else {
                 posterImg.src = '../assets/img/placeholder.png';
@@ -78,12 +71,11 @@ const cargarDetallePelicula = async () => {
             if(p.logo_path){
                 const li = document.createElement('li');
                 const img = document.createElement('img');
-                img.src = `${IMG_API_POSTER}${p.logo_path}`;
+                img.src = `${IMG_API}${p.logo_path}`;
                 li.appendChild(img);
                 productoras.appendChild(li);
             }
         });
-
 
         // Link IMDB
         const imdbInfo = document.getElementById('imdb-link');
