@@ -16,7 +16,7 @@ const cargarSeriesTendencia = async (page = 1) => {
         series.forEach(serie => {
 
         const path = document.createElement('a');
-        // path.href = `./pages/detalle.html?id=${serie.id}`;
+        path.href = `./detalleserie.html?id=${serie.id}`;
 
         const pelicula = document.createElement('div');
         pelicula.classList.add('pelicula');
@@ -85,7 +85,7 @@ const mostrarResultadosBusqueda = (series, query) => {
         if (!serie.poster_path) return;
         
         const path = document.createElement('a');
-        //path.href = `./pages/detalle.html?id=${serie.id}`;
+        path.href = `./detalleserie.html?id=${serie.id}`;
         
         const serieElement = document.createElement('div');
         serieElement.classList.add('pelicula');
