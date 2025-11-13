@@ -216,10 +216,13 @@ document.addEventListener('DOMContentLoaded', () => {
     cargarMejoresRanqueadas();
 });
 
-// Usuario logueado 
+
+// === BLOQUE DE USUARIO (reutilizable en cualquier página) ===
 document.addEventListener("DOMContentLoaded", () => {
   const userNav = document.getElementById("user-nav");
   const usuario = JSON.parse(localStorage.getItem("usuario"));
+
+  if (!userNav) return; // 👈 esto evita errores en páginas que no tienen ese elemento
 
   if (usuario) {
     userNav.innerHTML = `
@@ -237,4 +240,5 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
   }
 });
+
 
