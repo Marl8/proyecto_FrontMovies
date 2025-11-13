@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil de Usuario | FrontMovies</title>
+  <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <link rel="stylesheet" href="../css/perfil.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+</head>
+
+<body class="perfil-body">
+  <!-- Botón hamburguesa -->
+  <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <h2>Front<span>Movies</span></h2>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="../index.html"><i class="fa-solid fa-house"></i> Inicio</a>
+      <a href="#"><i class="fa-solid fa-clock-rotate-left"></i> Historial</a>
+      <a href="#"><i class="fa-solid fa-heart"></i> Favoritos</a>
+      <a href="#"><i class="fa-solid fa-gear"></i> Configuración</a>
+      <button id="logout" class="logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
+    </nav>
+  </aside>
+
+  <main class="perfil-main">
+    <section class="perfil-header">
+      <img id="avatar" class="perfil-avatar" src="" alt="Avatar del usuario">
+      <div class="perfil-info">
+        <h2 id="nombre" class="perfil-nombre"></h2>
+        <p id="email" class="perfil-email"></p>
+        <p id="detalles" class="perfil-detalles"></p>
+      </div>
+    </section>
+
+    <section class="perfil-contenido">
+      <h3>Tu actividad</h3>
+      <div class="contenedor-secciones">
+        <div class="card-seccion">
+          <i class="fa-solid fa-heart"></i>
+          <h4>Favoritos</h4>
+          <p>Aquí verás tus películas favoritas.</p>
+        </div>
+        <div class="card-seccion">
+          <i class="fa-solid fa-clock-rotate-left"></i>
+          <h4>Historial</h4>
+          <p>Tus últimas películas vistas aparecerán aquí.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+  <script src="../js/perfil.js"></script>
+</body>
+</html>

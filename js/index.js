@@ -215,3 +215,26 @@ document.addEventListener('DOMContentLoaded', () => {
     cargarPeliculasTendencia();
     cargarMejoresRanqueadas();
 });
+
+// Usuario logueado 
+document.addEventListener("DOMContentLoaded", () => {
+  const userNav = document.getElementById("user-nav");
+  const usuario = JSON.parse(localStorage.getItem("usuario"));
+
+  if (usuario) {
+    userNav.innerHTML = `
+      <a href="./pages/perfil.html" class="linkNav">👋 Hola, ${usuario.name}</a>
+      <button id="logout" class="linkNav iniciarSesion" style="margin-left: 10px;">Cerrar sesión</button>
+    `;
+
+    document.getElementById("logout").addEventListener("click", () => {
+      localStorage.removeItem("usuario");
+      window.location.reload();
+    });
+  } else {
+    userNav.innerHTML = `
+      <a class="linkNav iniciarSesion" href="./pages/iniciosesion.html">Iniciar sesión</a>
+    `;
+  }
+});
+
