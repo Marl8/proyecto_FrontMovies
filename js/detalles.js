@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', cargarDetallePelicula);
 
 // local storage
 
-
+/*
 document.addEventListener("DOMContentLoaded", () => {
   const usuario = JSON.parse(localStorage.getItem("usuario"));
   const userNav = document.getElementById("user-nav");
@@ -234,7 +234,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (registerBtn) registerBtn.style.display = "inline-block";
     if (userNav) userNav.innerHTML = "";
   }
-});
+});*/
 
 
 

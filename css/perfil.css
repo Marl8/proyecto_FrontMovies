@@ -179,4 +179,11 @@ body.perfil-body {
   }
 }
 
+.sidebar-logo img {
+  width: 120px; /* o el tamaño que quieras */
+  height: auto; /* mantiene proporción */
+  display: block;
+  margin: 0 auto; /* centra horizontalmente */
+}
+
 
