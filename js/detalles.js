@@ -205,32 +205,3 @@ menuToggleButton.addEventListener("click", function() {
 });
 
 document.addEventListener('DOMContentLoaded', cargarDetallePelicula); 
-
-
-// local storage
-
-/*
-document.addEventListener("DOMContentLoaded", () => {
-  const usuario = JSON.parse(localStorage.getItem("usuario"));
-  const userNav = document.getElementById("user-nav");
-  const loginBtn = document.querySelector(".iniciarSesion");
-  const registerBtn = document.querySelector('a[href="./registrarse.html"]');
-
-  if (usuario) {
-    //Usuario logueado: mostrar saludo con enlace al perfil
-    if (userNav) {
-      userNav.innerHTML = `
-        <a href="./perfil.html" class="linkNav saludo-usuario">Hola, ${usuario.name}</a>
-      `;
-    }
-
-    // Ocultar botones de login y registro
-    if (loginBtn) loginBtn.style.display = "none";
-    if (registerBtn) registerBtn.style.display = "none";
-  } else {
-    // Usuario no logueado
-    if (loginBtn) loginBtn.style.display = "inline-block";
-    if (registerBtn) registerBtn.style.display = "inline-block";
-    if (userNav) userNav.innerHTML = "";
-  }
-});*/
