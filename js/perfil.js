@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     peliculasContainer.innerHTML = `
       <div class="no-favorites">
       <img src="../assets/img/no-favorites.png" alt="Sin favoritos">
-      <p>Aún no agregaste series favoritas</p>
+      <p>Aún no agregaste películas favoritas</p>
     </div>
     `;
   } else {
@@ -94,13 +94,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     seriesContainer.innerHTML = `
       <div class="no-favorites">
       <img src="../assets/img/no-favorites.png" alt="Sin favoritos">
-      <p>Aún no agregaste películas favoritas</p>
+      <p>Aún no agregaste series favoritas</p>
     </div>
     `;
   } else {
     usuario.favoriteSeries.forEach(serie => {
       const card = document.createElement("div");
-      card.classList.add("favorito-card"); // usamos la misma clase que películas para igualar estilo
+      card.classList.add("favorito-card"); 
       card.dataset.id = serie.id;
       card.innerHTML = `
         <img src="https://image.tmdb.org/t/p/w500${serie.poster}" alt="${serie.title}">

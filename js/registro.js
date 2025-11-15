@@ -50,8 +50,9 @@ document.addEventListener("DOMContentLoaded", () => {
         birthdate: fechaNacimiento,
         country: pais,
         terms: terminos,
-        
-        avatar: "https://placehold.co/100x100?text=User",
+        avatar: `https://ui-avatars.com/api/?name=${nombre}+${apellido}&background=random&size=128`,
+
+        //avatar: "https://placehold.co/100x100?text=User",
         favorites: [],
         history: [],
         role: "user",

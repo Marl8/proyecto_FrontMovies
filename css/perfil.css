@@ -100,7 +100,7 @@ body.perfil-body {
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  border: 1px solid #e9c0c2;
+  /*border: 1px solid #e9c0c2;*/
 }
 
 .perfil-info h2 {
