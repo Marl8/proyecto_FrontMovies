@@ -1,11 +1,5 @@
 const API = 'https://api.themoviedb.org/3';
-const options = {
-    method: 'GET', 
-    headers: {
-        accept: 'application/json', 
-        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyZTUzYjRkOWY1MDlkNGVmM2NjZGQ2MGMyM2M4OTU5NyIsInN1YiI6IjY1OTcyZjkyNWNjMTFkNzdkODdkM2RlOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.3Tdpyr0grmKEYzMXhv5CPIIJfvZbkueIlzfdNFuj1iw',        
-    }
-};
+import { options } from './httpCliente.js';
 
 // Función para cargar películas en la cuadrícula de tendencias
 const cargarPeliculasTendencia = async (page = 1) => {
@@ -163,6 +157,9 @@ const restaurarTendencias = () => {
     });
     cargarPeliculasTendencia(1);
 };
+
+
+// Listeners
 
 const botonAnterior = document.getElementById('botonAnterior');
 const botonSiguiente = document.getElementById('botonSiguiente');
