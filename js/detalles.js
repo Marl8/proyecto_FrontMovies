@@ -3,11 +3,27 @@ const IMG_API = 'https://image.tmdb.org/t/p/w500';
 const IMG_API_BACKDROP = 'https://image.tmdb.org/t/p/original'; 
 const IMDB_URL = 'https://www.imdb.com/es/title';
 import { options } from './httpCliente.js';
+import { API_URL } from "./config.js";
+
+
+
+window.addEventListener('usuarioDeslogueado', () => {
+    const btnFav = document.getElementById("btnFavorito");
+    if (btnFav) {
+        btnFav.classList.remove("active");
+        btnFav.innerHTML = "Inicia sesión para usar favoritos";
+        btnFav.disabled = true;
+    }
+});
+
 
 const getMovieId = () => {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get('id');
 };
+
+
+
 
 const cargarDetallePelicula = async () => {
     const movieId = getMovieId();
@@ -115,6 +131,8 @@ const cargarDetallePelicula = async () => {
         // 3. Cargar el video
         cargarVideo(movieId);
 
+        manejarFavoritos(movieId, movieData);
+
     } catch (error) {
         console.error("Error FATAL al cargar los detalles de la película:", error);
         const tituloElement = document.getElementById('detalleTitulo');
@@ -204,4 +222,83 @@ menuToggleButton.addEventListener("click", function() {
     nav.classList.toggle("active");
 });
 
-document.addEventListener('DOMContentLoaded', cargarDetallePelicula); 
+
+async function manejarFavoritos(movieId, movieData) {
+    const btnFavOriginal = document.getElementById("btnFavorito");
+
+    // Función para actualizar el estado del botón según usuario
+    function actualizarBoton() {
+        const usuario = JSON.parse(localStorage.getItem("usuarioLogueado"));
+
+        if (!usuario) {
+            btnFav.classList.remove("active");
+            btnFav.innerHTML = `<i class="fa-solid fa-heart"></i> Inicia sesión para usar favoritos`;
+            btnFav.disabled = true;
+            return false;
+        }
+
+        btnFav.disabled = false;
+        const yaEsFavorito = usuario.favorites?.some(f => f.id == movieId);
+
+        if (yaEsFavorito) {
+            btnFav.classList.add("active");
+            btnFav.innerHTML = `<i class="fa-solid fa-heart"></i> Quitar de Favoritos`;
+        } else {
+            btnFav.classList.remove("active");
+            btnFav.innerHTML = `<i class="fa-solid fa-heart"></i> Agregar a Favoritos`;
+        }
+
+        return true;
+    }
+
+    // Clonar botón para limpiar listeners previos
+    const btnFav = btnFavOriginal.cloneNode(true);
+    btnFavOriginal.replaceWith(btnFav);
+
+    // Estado inicial
+    actualizarBoton();
+
+    // Evento click para agregar/quitar favoritos
+    btnFav.addEventListener("click", async () => {
+        const usuario = JSON.parse(localStorage.getItem("usuarioLogueado"));
+        if (!usuario) return; // no hacer nada si no hay usuario
+
+        const estaEnFavoritos = usuario.favorites?.some(f => f.id == movieId);
+
+        if (!estaEnFavoritos) {
+            // Agregar
+            usuario.favorites.push({
+                id: movieId,
+                title: movieData.title,
+                poster: movieData.poster_path
+            });
+        } else {
+            // Quitar
+            usuario.favorites = usuario.favorites.filter(f => f.id != movieId);
+        }
+
+        // Guardar en LocalStorage y MockAPI
+        localStorage.setItem("usuarioLogueado", JSON.stringify(usuario));
+        try {
+            await fetch(`${API_URL}/${usuario.id}`, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(usuario)
+            });
+        } catch (e) {
+            console.error("Error al guardar favoritos:", e);
+        }
+
+        actualizarBoton();
+
+        // Notificar al perfil que hubo un cambio
+        window.dispatchEvent(new Event('favoritosActualizados'));
+    });
+
+    // Escuchar logout desde otra parte
+    window.addEventListener('usuarioDeslogueado', actualizarBoton);
+}
+
+
+
+document.addEventListener('DOMContentLoaded', cargarDetallePelicula);

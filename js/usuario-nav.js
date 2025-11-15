@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const userNav = document.getElementById("user-nav");
   if (!userNav) return;
 
-  const usuario = JSON.parse(localStorage.getItem("usuario"));
+  const usuario = JSON.parse(localStorage.getItem("usuarioLogueado")); // <- unificado
 
   const isPages = window.location.pathname.includes("/pages/");
   const prefix = isPages ? "../pages/" : "./pages/";
@@ -14,7 +14,13 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
 
     document.getElementById("logout").addEventListener("click", () => {
-      localStorage.removeItem("usuario");
+      // Limpiar localStorage
+      localStorage.removeItem("usuarioLogueado");
+
+      // Disparar evento global para que otras páginas escuchen
+      window.dispatchEvent(new Event('usuarioDeslogueado'));
+
+      // Recargar la página
       window.location.reload();
     });
 
@@ -25,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
   }
 });
+
 
 /*document.addEventListener("DOMContentLoaded", () => {
   const userNav = document.getElementById("user-nav");

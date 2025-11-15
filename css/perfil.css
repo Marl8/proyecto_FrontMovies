@@ -1,4 +1,3 @@
-/* === PERFIL MODERNO RESPONSIVE === */
 body.perfil-body {
   margin: 0;
   display: flex;
@@ -186,4 +185,77 @@ body.perfil-body {
   margin: 0 auto; /* centra horizontalmente */
 }
 
+/* Contenedor de favoritos */
+.favoritos-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+/* Tarjetas de películas */
+.favorito-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* mantén imagen arriba y botón abajo */
+  width: 180px;               
+  background: #111;
+  border-radius: 10px;
+  padding: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.favorito-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.favorito-info {
+  flex-grow: 1; /* esto hace que todas las cards tengan misma altura */
+  margin: 8px 0;
+}
+
+.btn-quitar {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #c62828;
+  color: white;
+  font-weight: bold;
+  margin-top: auto; /* empuja el botón al fondo */
+  transition: 0.2s;
+}
+
+.btn-quitar:hover {
+  background: #ff3b3b;
+}
+
+
+/* Contenedor general para cuando no hay favoritos */
+.no-favorites {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  color: #666;
+}
+
+/* Imagen dentro del contenedor */
+.no-favorites img {
+  width: 150px; /* Ajusta tamaño según tu diseño */
+  height: auto;
+  margin-bottom: 1rem;
+  opacity: 0.7; /* un toque suave */
+}
+
+/* Texto del mensaje */
+.no-favorites p {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
 

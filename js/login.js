@@ -38,9 +38,10 @@ form.addEventListener("submit", async (e) => {
     }
 
     // Login exitoso
-    localStorage.setItem("usuario", JSON.stringify(user));
-    mensaje.textContent = `Bienvenido, ${user.name}! Redirigiendo...`;
-    mensaje.style.color = "green";
+   //localStorage.setItem("usuario", JSON.stringify(user));
+   localStorage.setItem("usuarioLogueado", JSON.stringify(user));
+   mensaje.textContent = `Bienvenido, ${user.name}! Redirigiendo...`;
+   mensaje.style.color = "green";
 
     setTimeout(() => {
       window.location.href = "../index.html";

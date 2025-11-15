@@ -50,6 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
         birthdate: fechaNacimiento,
         country: pais,
         terms: terminos,
+        
         avatar: "https://placehold.co/100x100?text=User",
         favorites: [],
         history: [],

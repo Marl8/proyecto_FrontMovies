@@ -17,8 +17,7 @@
 
   <aside class="sidebar">
     <div class="sidebar-logo">
-      <img src="../assets/img/FrontMovies.png" alt="Logo Principal">       
-    <!--<h2>Front<span>Movies</span></h2>-->
+      <img src="../assets/img/FrontMovies.png" alt="Logo Principal">
     </div>
     <nav class="sidebar-nav">
       <a href="../index.html"><i class="fa-solid fa-house"></i> Inicio</a>
@@ -39,27 +38,23 @@
       </div>
     </section>
 
-    <section class="perfil-contenido">
-      <h3>Tu actividad</h3>
-      <div class="contenedor-secciones">
-        <div class="card-seccion">
-          <i class="fa-solid fa-heart"></i>
-          <h4>Favoritos</h4>
-          <p>Aquí verás tus películas favoritas.</p>
-        </div>
-        <div class="card-seccion">
-          <i class="fa-solid fa-clock-rotate-left"></i>
-          <h4>Historial</h4>
-          <p>Tus últimas películas vistas aparecerán aquí.</p>
-        </div>
+    <section class="perfil-favoritos">
+      <h3>Películas favoritas</h3>
+      <div id="favoritos-container" class="favoritos-container">
+        <!-- Tarjetas de películas favoritas se insertarán aquí -->
       </div>
     </section>
+
+    <section class="perfil-favoritos">
+  <h3>Series Favoritas</h3>
+  <div id="favoritos-series-container" class="favoritos-container">
+    <!-- Tarjetas de series favoritas se insertarán aquí -->
+  </div>
+</section>
   </main>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>AOS.init();</script>
-  <script src="../js/perfil.js"></script>
-  <script src="../js/index.js"></script>
-
+  <script type="module" src="../js/perfil.js"></script>
 </body>
 </html>

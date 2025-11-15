@@ -3,11 +3,14 @@ const IMG_API = 'https://image.tmdb.org/t/p/w500';
 const IMG_API_BACKDROP = 'https://image.tmdb.org/t/p/original'; 
 const IMDB_URL = 'https://www.imdb.com/es/title';
 import { options } from './httpCliente.js';
+import { API_URL } from './config.js';
 
 const getSerieId = () => {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get('id');
 };
+
+
 
 const cargarDetallePelicula = async () => {
     const serieId = getSerieId();
@@ -122,6 +125,10 @@ const cargarDetallePelicula = async () => {
         // 3. Cargar el video
         cargarVideo(serieId);
 
+        // Inicializar botón de favoritos de series
+        manejarFavoritosSeries(serieId, serieData);
+
+
     } catch (error) {
         console.error("Error FATAL al cargar los detalles de la serie:", error);
         const tituloElement = document.getElementById('detalleTitulo');
@@ -218,3 +225,77 @@ menuToggleButton.addEventListener("click", function() {
     nav.classList.toggle("active");
 });
 
+async function manejarFavoritosSeries(serieId, serieData) {
+    const btnFavOriginal = document.getElementById("btnFavoritoSerie");
+
+    // Ver usuario logueado
+    const usuario = JSON.parse(localStorage.getItem("usuarioLogueado"));
+
+    if (!usuario) {
+        btnFavOriginal.textContent = "Inicia sesión para usar favoritos";
+        btnFavOriginal.disabled = true;
+        return;
+    }
+
+    // Limpiar listeners previos clonando el botón
+    const btnFav = btnFavOriginal.cloneNode(true);
+    btnFavOriginal.replaceWith(btnFav);
+
+    // Revisar si la serie ya está en favoritos
+    let yaEsFavorito = usuario.favoriteSeries?.some(f => f.id == serieId);
+
+    // Estado inicial visual
+    if (yaEsFavorito) {
+        btnFav.classList.add("active");
+        btnFav.innerHTML = `<i class="fa-solid fa-heart"></i> Quitar de Favoritos`;
+    } else {
+        btnFav.classList.remove("active");
+        btnFav.innerHTML = `<i class="fa-solid fa-heart"></i> Agregar a Favoritos`;
+    }
+
+    // Evento click para agregar/quitar
+    btnFav.addEventListener("click", async () => {
+        if (!usuario.favoriteSeries) usuario.favoriteSeries = [];
+
+        const estaEnFavoritos = usuario.favoriteSeries.some(f => f.id == serieId);
+
+        if (!estaEnFavoritos) {
+            // Agregar serie
+            usuario.favoriteSeries.push({
+                id: serieId,
+                title: serieData.name || serieData.title,
+                poster: serieData.poster_path
+            });
+
+            btnFav.classList.add("active");
+            btnFav.innerHTML = `<i class="fa-solid fa-heart"></i> Quitar de Favoritos`;
+        } else {
+            // Quitar serie
+            usuario.favoriteSeries = usuario.favoriteSeries.filter(f => f.id != serieId);
+
+            btnFav.classList.remove("active");
+            btnFav.innerHTML = `<i class="fa-solid fa-heart"></i> Agregar a Favoritos`;
+        }
+
+        // Guardar en LocalStorage
+        localStorage.setItem("usuarioLogueado", JSON.stringify(usuario));
+
+        // Guardar en MockAPI
+        try {
+            const res = await fetch(`${API_URL}/${usuario.id}`, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(usuario)
+            });
+
+            if (!res.ok) throw new Error("No se pudo actualizar MockAPI");
+
+            console.log("MockAPI actualizado correctamente:", await res.json());
+        } catch (e) {
+            console.error("Error al guardar favoritos en MockAPI:", e);
+        }
+
+        // Disparar evento para actualizar perfil si es necesario
+        window.dispatchEvent(new Event('favoritosActualizados'));
+    });
+}
