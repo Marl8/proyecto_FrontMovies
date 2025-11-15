@@ -20,8 +20,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   } else {
     userNav.innerHTML = `
+      <a class="linkNav" href="${prefix}registrarse.html">Registrarse</a>    
       <a class="linkNav iniciarSesion" href="${prefix}iniciosesion.html">Iniciar sesión</a>
-      <a class="linkNav" href="${prefix}registrarse.html">Registrarse</a>
     `;
   }
 });

@@ -10,11 +10,10 @@
 }
 
 .bodyRegistrarse .main {
-    padding: 3rem;
+    padding: 1rem 3rem;
     display: flex;
     justify-content: center;
     align-items: center; 
-    height: 100vh; 
 }
 
 .bodyRegistrarse .main .headerRegistrarse{
@@ -177,6 +176,11 @@
     .bodyRegistrarse .main .seccionRegistrarse {
         width: 95%;
         padding: 10px 10px;
+    }
+
+    .bodyRegistrarse .main .seccionRegistrarse form input:not(.check, .boton), 
+    .bodyRegistrarse .main .seccionRegistrarse form select{
+        line-height: 10px; 
     }
 
     .bodyRegistrarse .main .seccionRegistrarse form .boton {

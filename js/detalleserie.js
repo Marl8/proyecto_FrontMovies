@@ -104,13 +104,13 @@ const cargarDetallePelicula = async () => {
             statusRow.innerHTML = `<td><strong>Status</strong></td><td>${serieData.status || 'Desconocido'}</td>`;
             infoTabla.appendChild(statusRow);
             const languageRow = document.createElement('tr');
-            languageRow.innerHTML = `<td><strong>Original Language</strong></td><td>${serieData.original_language || 'Desconocido'}</td>`;
+            languageRow.innerHTML = `<td><strong>Lenguaje Original</strong></td><td>${serieData.original_language || 'Desconocido'}</td>`;
             infoTabla.appendChild(languageRow);
             const vote_averageRow = document.createElement('tr');
-            vote_averageRow.innerHTML = `<td><strong>Average</strong></td><td>${serieData.vote_average ? serieData.vote_average : 'Desconocido'}</td>`;
+            vote_averageRow.innerHTML = `<td><strong>Valoración</strong></td><td>${serieData.vote_average ? serieData.vote_average : 'Desconocido'}</td>`;
             infoTabla.appendChild(vote_averageRow);
             const popularityRow = document.createElement('tr');
-            popularityRow.innerHTML = `<td><strong>popularity</strong></td><td>${serieData.popularity ? serieData.popularity : 'Desconocido'}</td>`;
+            popularityRow.innerHTML = `<td><strong>Popularidad</strong></td><td>${serieData.popularity ? serieData.popularity : 'Desconocido'}</td>`;
             infoTabla.appendChild(popularityRow);
         } else {
             console.error("No se encontró el elemento con ID 'detalleInfoTabla'");

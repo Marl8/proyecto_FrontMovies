@@ -63,6 +63,11 @@ body {
     margin-right: 20px;
 }
 
+.header .navegacion .listaNav #user-nav{
+        display: flex;
+        gap: 1rem;
+}
+
 .header .navegacion .listaNav .listaItem .linkNav {
     text-decoration: none;
     color: #ffffff;
@@ -455,6 +460,11 @@ body {
     .header .navegacion.active ul {
         display: flex;
         flex-direction: column;
+    }
+
+    .header .navegacion .listaNav #user-nav{
+        flex-direction: column;
+        align-items: center;
     }
 
     .header .navegacion .logo {

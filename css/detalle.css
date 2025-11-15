@@ -9,6 +9,11 @@
     height: 76vh;
 }
 
+.mainDetalle .detalle-serie {
+    height: 85vh;
+}
+
+
 .mainDetalle .detalle .contenedorDetalle {
     width: 75%;
     margin: 0 auto;
