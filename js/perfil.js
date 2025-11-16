@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       card.addEventListener("click", (e) => {
         if (!e.target.classList.contains("btn-quitar")) {
-          window.location.href = `../pages/detalleSerie.html?id=${serie.id}`;
+          window.location.href = `../pages/detalleserie.html?id=${serie.id}`;
         }
       });
 
