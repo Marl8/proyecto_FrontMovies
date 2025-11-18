@@ -215,35 +215,7 @@ menuToggleButton.addEventListener("click", function() {
     nav.classList.toggle("active");
 });
 
-
 document.addEventListener('DOMContentLoaded', () => {
     cargarPeliculasTendencia();
     cargarMejoresRanqueadas();
 });
-
-/*
-// === BLOQUE DE USUARIO (reutilizable en cualquier página) ===
-document.addEventListener("DOMContentLoaded", () => {
-  const userNav = document.getElementById("user-nav");
-  const usuario = JSON.parse(localStorage.getItem("usuario"));
-
-  if (!userNav) return; // 
-
-  if (usuario) {
-    userNav.innerHTML = `
-      <a href="./pages/perfil.html" class="linkNav">Hola, ${usuario.name}</a>
-      <button id="logout" class="linkNav iniciarSesion" style="margin-left: 10px;">Cerrar sesión</button>
-    `;
-
-    document.getElementById("logout").addEventListener("click", () => {
-      localStorage.removeItem("usuario");
-      window.location.reload();
-    });
-  } else {
-    userNav.innerHTML = `
-      <a class="linkNav iniciarSesion" href="./pages/iniciosesion.html">Iniciar sesión</a>
-    `;
-  }
-});*/
-
-
