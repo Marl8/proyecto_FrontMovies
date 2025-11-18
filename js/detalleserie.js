@@ -32,7 +32,7 @@ const cargarDetallePelicula = async () => {
         console.log("Detalles principales de la serie:", serieData);
 
         // Aplicar Título
-        document.getElementById('detalleTitulo').textContent = serieData.original_language === 'en' ? serieData.original_title : serieData.title;
+        document.getElementById('detalleTitulo').textContent = serieData.original_language === 'en' ? serieData.original_name : serieData.name;
 
         // Información general 
         const releaseDate = serieData.first_air_date? new Date(serieData.first_air_date).getFullYear() : 'Fecha desconocida';
