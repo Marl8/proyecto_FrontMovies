@@ -365,7 +365,7 @@ body {
     padding: 20px;
     background: linear-gradient(to right top, #2c6180, #36799f, #6ea3c2);
     color: #ffffff;
-    height: 18vh;
+    height: 22vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -593,6 +593,10 @@ body {
     .footer .listaNav {
         flex-direction: column;
         row-gap: 15px;
+    }
+
+    .footer p{
+        text-align: center;
     }
 
     .footer .listaNav .listaItem .linkNav {
