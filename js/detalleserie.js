@@ -11,7 +11,6 @@ const getSerieId = () => {
 };
 
 
-
 const cargarDetallePelicula = async () => {
     const serieId = getSerieId();
 
@@ -232,8 +231,11 @@ async function manejarFavoritosSeries(serieId, serieData) {
     const usuario = JSON.parse(localStorage.getItem("usuarioLogueado"));
 
     if (!usuario) {
-        btnFavOriginal.textContent = "Inicia sesión para usar favoritos";
-        btnFavOriginal.disabled = true;
+        btnFavOriginal.innerHTML = `<i class="fa-solid fa-heart"></i> Inicia sesión para usar favoritos`;
+        //btnFavOriginal.disabled = true;
+        btnFavOriginal.addEventListener("click", () => {
+            window.location.href = "../pages/iniciosesion.html";
+        });
         return;
     }
 
@@ -255,6 +257,7 @@ async function manejarFavoritosSeries(serieId, serieData) {
 
     // Evento click para agregar/quitar
     btnFav.addEventListener("click", async () => {
+
         if (!usuario.favoriteSeries) usuario.favoriteSeries = [];
 
         const estaEnFavoritos = usuario.favoriteSeries.some(f => f.id == serieId);

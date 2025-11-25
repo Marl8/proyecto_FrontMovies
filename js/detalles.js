@@ -233,7 +233,9 @@ async function manejarFavoritos(movieId, movieData) {
         if (!usuario) {
             btnFav.classList.remove("active");
             btnFav.innerHTML = `<i class="fa-solid fa-heart"></i> Inicia sesión para usar favoritos`;
-            btnFav.disabled = true;
+            btnFav.addEventListener("click", () => {
+                window.location.href = "../pages/iniciosesion.html";
+            });
             return false;
         }
 
