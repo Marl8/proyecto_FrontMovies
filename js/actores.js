@@ -1,15 +1,8 @@
-const contenedor = document.getElementById('contenedor-actores');
-
-const options = {
-    method: 'GET',
-    headers: {
-        accept: 'application/json',
-        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyZTUzYjRkOWY1MDlkNGVmM2NjZGQ2MGMyM2M4OTU5NyIsInN1YiI6IjY1OTcyZjkyNWNjMTFkNzdkODdkM2RlOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.3Tdpyr0grmKEYzMXhv5CPIIJfvZbkueIlzfdNFuj1iw'
-    }
-};
-
+import { options } from './httpCliente.js';
 const URL_API = 'https://api.themoviedb.org/3/person/popular?language=es-MX&page=1';
 const URL_IMG = 'https://image.tmdb.org/t/p/w500';
+
+const contenedor = document.getElementById('contenedor-actores');
 
 async function cargarActores() {
     try {
@@ -59,5 +52,13 @@ function renderizar(lista) {
         contenedor.appendChild(card);
     });
 }
+
+const menuToggleButton = document.getElementById("menu-toggle");
+const nav = document.querySelector(".header .navegacion");
+
+// Agregar un evento al botón hamburguesa
+menuToggleButton.addEventListener("click", function() {
+    nav.classList.toggle("active");
+});
 
 document.addEventListener('DOMContentLoaded', cargarActores);

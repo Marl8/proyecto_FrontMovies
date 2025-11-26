@@ -1,15 +1,8 @@
-const contenedor = document.getElementById('contenedor-proximamente');
-
-const options = {
-    method: 'GET',
-    headers: {
-        accept: 'application/json',
-        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyZTUzYjRkOWY1MDlkNGVmM2NjZGQ2MGMyM2M4OTU5NyIsInN1YiI6IjY1OTcyZjkyNWNjMTFkNzdkODdkM2RlOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.3Tdpyr0grmKEYzMXhv5CPIIJfvZbkueIlzfdNFuj1iw'
-    }
-};
-
+import { options } from './httpCliente.js';
 const URL_API = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=es-MX&page=1&primary_release_date.gte=2025-12-15&sort_by=popularity.desc';
 const URL_IMG = 'https://image.tmdb.org/t/p/w500';
+
+const contenedor = document.getElementById('contenedor-proximamente');
 
 async function cargarProximamente() {
     try {
@@ -59,4 +52,14 @@ function renderizar(lista) {
     });
 }
 
+const menuToggleButton = document.getElementById("menu-toggle");
+const nav = document.querySelector(".header .navegacion");
+
+// Agregar un evento al botón hamburguesa
+menuToggleButton.addEventListener("click", function() {
+    nav.classList.toggle("active");
+});
+
+
 document.addEventListener('DOMContentLoaded', cargarProximamente);
+
