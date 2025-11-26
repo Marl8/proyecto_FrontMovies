@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrellas - FrontMovies</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+
+    <style>
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.95)), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvjq8KrwB6Pyo1RSKAzDNTI-6JgylmRaNSuAx9rXoWPqZs46Gac7hP1ka5YMM3yIBBCE0&usqp=CAU');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            color: #ffffff;
+            font-family: 'Nunito', sans-serif;
+            margin: 0;
+            min-height: 100vh;
+        }
+
+        .main-content {
+            padding-top: 100px; 
+            min-height: 80vh;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 0 20px;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .page-subtitle {
+            color: #ccc;
+            font-size: 1.2rem;
+        }
+
+        #contenedor-actores {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 30px;
+            padding: 0 60px 60px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .actor-card {
+            background-color: #1f1f1f;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            height: 100%;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .actor-img {
+            width: 100%;
+            height: 100%;
+            aspect-ratio: 2/3;
+            object-fit: cover;
+            display: block;
+            transition: all 0.5s ease;
+        }
+
+        .actor-info {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            opacity: 0;
+            transition: all 0.4s ease;
+            z-index: 2;
+        }
+
+        .actor-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            z-index: 5;
+        }
+
+        .actor-card:hover .actor-img {
+            filter: blur(8px) brightness(0.6);
+            transform: scale(1.1);
+        }
+
+        .actor-card:hover .actor-info {
+            opacity: 1;
+        }
+
+        .actor-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #fff;
+            margin: 0 0 10px 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .actor-popularity {
+            font-size: 0.9rem;
+            color: #fff;
+            background-color: #e50914;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(229, 9, 20, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            #contenedor-actores {
+                padding: 0 20px 40px;
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                gap: 15px;
+            }
+            .page-title { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <nav class="navegacion">
+            <a class="logo" href="../index.html">
+                <img src="../assets/img/FrontMovies.png" alt="Logo Principal">
+            </a>
+            <button class="btn-toggle-menu" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="listaNav">
+                <li class="listaItem"><a class="linkNav" href="../index.html#tendencias">Tendencias</a></li>
+                <li class="listaItem"><a class="linkNav" href="./series.html">Series</a></li>
+                <li class="listaItem"><a class="linkNav" href="./proximamente.html">Próximamente</a></li>
+                <li class="listaItem"><a class="linkNav" href="#" style="color: white; font-weight: bold;">Estrellas del momento</a></li>
+                <li class="listaItem"><a class="linkNav" href="./registrarse.html">Registrarse</a></li>
+                <li class="listaItem"><a class="linkNav iniciarSesion" href="./iniciosesion.html">Iniciar sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="section-header" data-aos="fade-down">
+            <h1 class="page-title">Estrellas del Momento</h1>
+            <p class="page-subtitle">Los actores y actrices más populares de la semana</p>
+        </div>
+
+        <div id="contenedor-actores" data-aos="fade-up"></div>
+    </main>
+
+    <footer class="footer">
+        <nav class="navegacion">
+            <ul class="listaNav">
+                <li class="listaItem"><a class="linkNav" href="">Términos y condiciones</a></li>
+                <li class="listaItem"><a class="linkNav" href="">FAQs</a></li>
+                <li class="listaItem"><a class="linkNav" href="https://www.argentina.gob.ar/economia/industria-y-comercio/defensadelconsumidor" target="_blank">Defensa al Consumidor</a></li>
+                <li class="listaItem"><a class="linkNav" href="">Ayuda</a></li>
+            </ul>
+        </nav>
+        <a href="#main" class="flechaArriba">
+            <img src="../assets/img/flecha-hacia-arriba.png" alt="ir arriba flecha">
+        </a>
+        <div class="redes">
+            <i class="fab fa-facebook"></i>
+            <i class="fa-brands fa-x-twitter"></i>
+            <i class="fab fa-instagram"></i>
+        </div>
+        <p>Proyecto realizado por Martin Lemberger - Andrea Purriños - Adrián Chalabe </p>
+        <p class="video">Copyright &copy; 2025 Todos los derechos reservados</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script type="module" src="../js/actores.js"></script>
+</body>
+</html>
