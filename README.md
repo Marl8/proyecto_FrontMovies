@@ -10,10 +10,11 @@ También se utilizó mockApi para simular la gestión de autenticación de usuar
 
 <br/>
 
-<img width="1257" height="869" alt="2" src="https://github.com/user-attachments/assets/b955cc47-1826-4e32-b624-70782f573a8b" />
+<img width="1266" height="861" alt="2" src="https://github.com/user-attachments/assets/8e2c5a8b-0afa-4a61-a0ea-8b9fdd1d54aa" />
 
 <br/>
 
 #### Proyecto realizado por:
 - Martin Lemberger
 - Andrea Purriños
+- Adrián Chalabe
