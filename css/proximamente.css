@@ -165,6 +165,36 @@ body {
 }
 
 
+/*====== Generos Películas ==========*/
+
+.genre-title{
+    margin: 1.5rem 0.5rem;
+}
+
+#generos-container{
+    margin-bottom: 2rem;
+}
+
+.genre-carousel {
+    width: 100%;
+    overflow: hidden;
+}
+
+.swiper {
+    width: 100%;
+    padding: 10px 0;
+}
+
+.swiper-slide {
+    width: 160px !important; 
+    flex-shrink: 0;
+}
+
+.movie-card {
+    width: 100%;
+}
+
+
 @media (max-width: 768px) {
     #contenedor-proximamente {
         padding: 0 20px 40px;
