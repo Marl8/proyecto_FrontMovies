@@ -46,11 +46,13 @@ document.addEventListener("DOMContentLoaded", async () => {
   peliculasContainer.innerHTML = "";
   if (!usuario.favorites || usuario.favorites.length === 0) {
     peliculasContainer.innerHTML = `
-      <div class="no-favorites">
-      <img src="../assets/img/no-favorites.png" alt="Sin favoritos">
-      <p>Aún no agregaste películas favoritas</p>
-    </div>
-    `;
+      
+
+    <div class="no-favorites">
+   <span class="material-symbols-outlined" style="font-size: 80px; color: #848181ff;">heart_minus</span>
+    <p>Aún no agregaste series favoritas</p>
+  </div>
+`;
   } else {
     usuario.favorites.forEach(fav => {
       const card = document.createElement("div");
@@ -91,12 +93,18 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (!seriesContainer) return;
   seriesContainer.innerHTML = "";
   if (!usuario.favoriteSeries || usuario.favoriteSeries.length === 0) {
-    seriesContainer.innerHTML = `
+    /*seriesContainer.innerHTML = `
       <div class="no-favorites">
       <img src="../assets/img/no-favorites.png" alt="Sin favoritos">
       <p>Aún no agregaste series favoritas</p>
     </div>
-    `;
+    `;*/
+    seriesContainer.innerHTML = `
+  <div class="no-favorites">
+   <span class="material-symbols-outlined" style="font-size: 80px; color: #848181ff;">heart_minus</span>
+    <p>Aún no agregaste series favoritas</p>
+  </div>
+`;
   } else {
     usuario.favoriteSeries.forEach(serie => {
       const card = document.createElement("div");

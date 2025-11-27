@@ -15,6 +15,4 @@ También se utilizó mockApi para simular la gestión de autenticación de usuar
 <br/>
 
 #### Proyecto realizado por:
-- Martin Lemberger
-- Andrea Purriños
-- Adrián Chalabe
+- Grupo 9
