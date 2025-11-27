@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="stylesheet" href="../css/proximamente.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
-    <title>Próximamente - FrontMovies</title>
+    <title>Géneros de Películas- FrontMovies</title>
 </head>
 <body>
     <header class="header">
@@ -22,7 +23,7 @@
             <ul class="listaNav">
                 <li class="listaItem"><a class="linkNav" href="../index.html#tendencias">Tendencias</a></li>
                 <li class="listaItem"><a class="linkNav" href="./series.html">Series</a></li>
-                <li class="listaItem"><a class="linkNav" href="#" style="color: white; font-weight: bold;">Próximamente</a></li>
+                <li class="listaItem"><a class="linkNav" href="./proximamente.html">Próximamente</a></li>
                 <li class="listaItem"><a class="linkNav" href="./actores.html">Estrellas del momento</a></li>
                 <li class="listaItem" id="user-nav"></li> 
             </ul>
@@ -31,11 +32,13 @@
 
     <main class="main-content">
         <div class="section-header" data-aos="fade-down">
-            <h1 class="page-title">Próximamente</h1>
-            <p class="page-subtitle">Estrenos confirmados</p>
+            <h1 class="page-title">Explora por Género</h1>
+            <p class="page-subtitle">Descubre películas organizadas por categorías</p>
         </div>
 
-        <div id="contenedor-proximamente" data-aos="fade-up"></div>
+        <div id="generos-container" class="generos-wrapper">
+            <!-- Aquí se cargarán dinámicamente los carruseles por género -->
+        </div>
     </main>
 
     <footer class="footer">
@@ -55,16 +58,17 @@
             <i class="fab fa-facebook"></i>
             <i class="fa-brands fa-x-twitter"></i>
             <i class="fab fa-instagram"></i>
-		</div>
+        </div>
         <p>Proyecto realizado por Grupo 9</p>
         <p class="video">Copyright &copy; 2025 Todos los derechos reservados</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         AOS.init();
     </script>
-    <script type="module" src="../js/proximamente.js"></script>
+    <script type="module" src="../js/genero-peliculas.js"></script>
     <script src="../js/usuario-nav.js"></script>
 </body>
 </html>
