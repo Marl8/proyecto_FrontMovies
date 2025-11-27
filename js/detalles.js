@@ -23,8 +23,6 @@ const getMovieId = () => {
 };
 
 
-
-
 const cargarDetallePelicula = async () => {
     const movieId = getMovieId();
 

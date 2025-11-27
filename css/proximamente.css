@@ -33,13 +33,31 @@ body {
     font-size: 1.2rem;
 }
 
-#contenedor-proximamente {
+/*#contenedor-proximamente {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 250px));
+    justify-content: center;
+    align-items: center;
     gap: 30px;
     padding: 0 60px 60px;
     max-width: 1600px;
     margin: 0 auto;
+}*/
+
+#contenedor-proximamente {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 0 60px 60px;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+#contenedor-proximamente > * {
+    flex: 0 0 auto;
+    width: 200px;
 }
 
 .poster-card {
@@ -117,6 +135,36 @@ body {
     box-shadow: 0 4px 10px rgba(229, 9, 20, 0.4);
 }
 
+.main-content .boton-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-content .boton {
+    border: 1px solid white;
+    box-sizing: content-box;
+    margin-top: 50px;
+    margin-left: 20px;
+    background-color: #36799f;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    margin-bottom: 60px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.main-content .boton:hover {
+    background-color: #1e445a;
+    transform: scale(0.95);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+}
+
+
 @media (max-width: 768px) {
     #contenedor-proximamente {
         padding: 0 20px 40px;
@@ -125,3 +173,4 @@ body {
     }
     .page-title { font-size: 2rem; }
 }
+

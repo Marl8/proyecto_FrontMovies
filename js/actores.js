@@ -13,6 +13,7 @@ async function cargarActores() {
         const data = await response.json();
         
         const actoresValidos = data.results.filter(actor => actor.profile_path);
+        console.log(actoresValidos);
         
         renderizar(actoresValidos);
 
@@ -26,12 +27,11 @@ function renderizar(lista) {
     contenedor.innerHTML = '';
 
     lista.forEach(actor => {
+        const a = document.createElement('a');
         const card = document.createElement('div');
         card.className = 'actor-card';
         
-        card.onclick = function() {
-            window.open(`https://www.themoviedb.org/person/${actor.id}`, '_blank');
-        };
+        a.href = `./peliculasactor.html?id=${actor.id}`;
 
         const imagenUrl = `${URL_IMG}${actor.profile_path}`;
         const popularidad = Math.round(actor.popularity);
@@ -48,8 +48,8 @@ function renderizar(lista) {
                 <p class="actor-popularity">🔥 ${popularidad} Trending</p>
             </div>
         `;
-
-        contenedor.appendChild(card);
+        a.appendChild(card)
+        contenedor.appendChild(a);
     });
 }
 
