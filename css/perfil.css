@@ -65,7 +65,8 @@ body.perfil-body {
 
 .sidebar-nav a:hover,
 .logout-btn:hover {
-  background-color: #e50914;
+  /*background-color: #e50914;*/
+  background: linear-gradient(135deg, #99027b 0%, #6200c3 100%);
   color: #fff;
 }
 
@@ -222,7 +223,8 @@ body.perfil-body {
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  background: #c62828;
+  /*background: #c62828;*/
+  background: linear-gradient(135deg, #99027b 0%, #6200c3 100%);
   color: white;
   font-weight: bold;
   margin-top: auto; /* empuja el botón al fondo */
