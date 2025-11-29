@@ -202,10 +202,18 @@ body {
 
 @media (max-width: 768px) {
     #contenedor-proximamente {
-        padding: 0 20px 40px;
+        padding: 0 0 40px;
         grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
         gap: 15px;
     }
-    .page-title { font-size: 2rem; }
+
+    #contenedor-proximamente > * {
+    flex: 0 0 auto;
+    width: 75%;
+    }
+
+    .page-title { 
+        font-size: 2rem; 
+    }
 }
 

@@ -457,12 +457,22 @@ body {
     }
 
     .header .navegacion {
-        flex-direction: column;
-        justify-content: center;
+        /*flex-direction: column;*/
+        justify-content: space-between;
+        margin: 0 1.5rem;
         row-gap: 20px;
     }
 
     .header .navegacion .listaNav {
+        display: none;
+    }
+
+    .header .navegacion.active{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .header .navegacion.active img{
         display: none;
     }
 
@@ -521,6 +531,8 @@ body {
 
     .main .buscadorPrincipal {
         height: 30vh;
+        padding: 1rem;
+        text-align: center;
     }
 
     .main .buscadorPrincipal .tituloSection {
@@ -545,7 +557,6 @@ body {
 
     .main .tendencias {
         width: 80%;
-        padding: 1rem;
     }
 
     .main .tendencias .tituloSection {
