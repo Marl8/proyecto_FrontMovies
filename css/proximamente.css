@@ -202,14 +202,20 @@ body {
 
 @media (max-width: 768px) {
     #contenedor-proximamente {
-        padding: 0 0 40px;
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-        gap: 15px;
+        padding: 0 0 20px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
+        gap: 0rem;
     }
 
     #contenedor-proximamente > * {
     flex: 0 0 auto;
-    width: 75%;
+    width: 85%;
+    }
+
+    .poster-card{
+        margin-bottom: 1.5rem;
     }
 
     .page-title { 

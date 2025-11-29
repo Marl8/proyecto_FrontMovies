@@ -556,21 +556,30 @@ body {
     }
 
     .main .tendencias {
-        width: 80%;
+        width: 100%;
     }
 
     .main .tendencias .tituloSection {
         font-size: 2rem;
     }
 
-    .main .tendencias .peliculas {
+    /*.main .tendencias .peliculas {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        gap: 5px;
+    }*/
+
+    .main .tendencias .peliculas {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        flex-wrap: nowrap;
+        gap: 0;
     }
 
     .main .tendencias .peliculas a {
         width: 100%;
+        padding: 0;
     }
 
     .main .tendencias .peliculas a .pelicula {
