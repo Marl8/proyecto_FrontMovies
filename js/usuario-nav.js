@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (usuario) {
     userNav.innerHTML = `
       <a href="${prefix}perfil.html" class="linkNav">Hola, ${usuario.name}</a>
-      <button id="logout" class="linkNav iniciarSesion" style="margin-left:10px;">Cerrar sesión</button>
+      <a id="logout" class="linkNav iniciarSesion">Cerrar sesión</a>
     `;
 
     document.getElementById("logout").addEventListener("click", () => {
