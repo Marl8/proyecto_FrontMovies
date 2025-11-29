@@ -195,6 +195,10 @@ body {
     width: 100%;
 }
 
+.swiper-button-next,
+.swiper-button-prev {
+    color: #b80093; 
+}
 
 @media (max-width: 768px) {
     #contenedor-proximamente {
