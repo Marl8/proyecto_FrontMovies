@@ -10,7 +10,7 @@ También se utilizó mockApi para simular la gestión de autenticación de usuar
 
 <br/>
 
-<img width="1266" height="861" alt="2" src="https://github.com/user-attachments/assets/8e2c5a8b-0afa-4a61-a0ea-8b9fdd1d54aa" />
+<img width="1255" height="860" alt="1" src="https://github.com/user-attachments/assets/3b45bf9a-46ba-4c77-882e-ad70f58485b6" />
 
 <br/>
 
