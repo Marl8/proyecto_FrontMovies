@@ -73,7 +73,7 @@ const cargarDetallePelicula = async () => {
         if (detalleSection) { 
             if (movieData.backdrop_path) {
                 const backdropUrl = `${IMG_API_BACKDROP}/${movieData.backdrop_path}`; 
-                detalleSection.style.backgroundImage = `linear-gradient(to right top, rgba(109, 105, 105, 0.65), rgba(109, 105, 105, 0.65)), url(${backdropUrl})`;
+                detalleSection.style.backgroundImage = `linear-gradient(to right top, rgba(8, 8, 8, 0.65), rgba(9, 9, 9, 0.65)), url(${backdropUrl})`;
             } 
         } else {
             console.error("No se encontró el elemento con clase '.mainDetalle .detalle'");
