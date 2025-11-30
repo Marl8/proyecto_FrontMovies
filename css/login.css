@@ -70,7 +70,7 @@
     margin-bottom: 10px;
     border-radius: 20px;
     line-height: 40px;
-    border: 2px solid #36799f;
+    border: 2px solid #7f0066;
     background-color: #333333;
     outline: none;
     color: rgb(255, 255, 255);
@@ -107,7 +107,7 @@
 
 .bodyRegistrarse .main .seccionRegistrarse form .boton {
     background: linear-gradient(135deg, #7f0066 0%, #35016a 100%);
-    border: 2px solid #310027;
+    border: 2px solid #410036;
     width: 100%;
     color: #ffffff;
     padding: 1rem 1rem;
@@ -185,6 +185,11 @@ form .div-registrarse, form .ayuda{
     .bodyRegistrarse .main .seccionRegistrarse {
         width: 95%;
         padding: 10px 10px;
+    }
+
+    .bodyRegistrarse .main .seccionRegistrarse form {
+        width: 100%;
+        padding: 0px 40px 20px;
     }
 
     .bodyRegistrarse .main .seccionRegistrarse form input:not(.check, .boton), 
