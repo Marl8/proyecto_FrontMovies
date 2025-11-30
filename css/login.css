@@ -98,7 +98,7 @@
     font-size: 0.8rem;
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    margin: 20px;
 }
 
 .bodyRegistrarse .main .seccionRegistrarse form .terminos .textoCheck {
@@ -106,8 +106,8 @@
 }
 
 .bodyRegistrarse .main .seccionRegistrarse form .boton {
-    background-color: #36799f;
-    border: 2px solid #36799f;
+    background: linear-gradient(135deg, #7f0066 0%, #35016a 100%);
+    border: 2px solid #310027;
     width: 100%;
     color: #ffffff;
     padding: 1rem 1rem;
@@ -116,6 +116,10 @@
     font-weight: 500;
     cursor: pointer;
 }
+
+form .div-registrarse, form .ayuda{
+        text-align: center;
+    }
 
 .bodyRegistrarse .main .seccionRegistrarse form .ayuda {
     margin-top: 40px;
@@ -153,7 +157,7 @@
 
     .bodyRegistrarse .main .seccionRegistrarse form .terminos {
         width: 80%;
-        margin: 0 auto;
+        margin: 1rem auto;
         font-size: 0.7rem;
     }
 
@@ -168,6 +172,7 @@
     .bodyRegistrarse .main .seccionRegistrarse form .ayuda {
         text-align: left;
         font-size: 0.8rem;
+        margin-top: 10px;
     }
 }
 
@@ -185,6 +190,17 @@
     .bodyRegistrarse .main .seccionRegistrarse form input:not(.check, .boton), 
     .bodyRegistrarse .main .seccionRegistrarse form select{
         line-height: 10px; 
+    }
+
+    .bodyRegistrarse .main .seccionRegistrarse form input:not(.check, .boton){
+        padding: 0.7rem 1rem;
+        font-size: 1.2rem;
+    }
+
+    .bodyRegistrarse .main .seccionRegistrarse form .ayuda {
+        text-align: left;
+        font-size: 0.8rem;
+        margin-top: 10px;
     }
 
     .bodyRegistrarse .main .seccionRegistrarse form .boton {

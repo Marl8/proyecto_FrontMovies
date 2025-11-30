@@ -481,6 +481,11 @@ body {
         flex-direction: column;
     }
 
+    .header .navegacion.active ul {
+        display: flex;
+        flex-direction: column;
+    }
+
     .header .navegacion .listaNav #user-nav{
         flex-direction: column;
         align-items: center;
@@ -507,9 +512,9 @@ body {
     }
 
     .header .navegacion .listaNav .listaItem .linkNav.iniciarSesion {
-    background-color: #181419;
-    color: white;
-    padding: 0 1rem 0 1rem;
+        background-color: #181419;
+        color: white;
+        padding: 0.5rem 1rem;
     }
     
     .main .sectionPrincipal {
