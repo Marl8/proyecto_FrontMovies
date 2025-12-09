@@ -76,7 +76,7 @@ const cargarDetallePelicula = async () => {
 
         // Productoras
         const productoras = document.getElementById('productoras');
-        serieData.production_companies.slice(0, 5).forEach(p =>{
+        serieData.production_companies.slice(0, 4).forEach(p =>{
             if(p.logo_path){
                 const li = document.createElement('li');
                 const img = document.createElement('img');

@@ -10,7 +10,7 @@
 }
 
 .mainDetalle .detalle-serie {
-    height: 95vh;
+    height: 100vh;
 }
 
 
@@ -30,7 +30,11 @@
 
 .mainDetalle .detalle .contenedorDetalle .textoDetalle h1 {
     font-size: 2.2rem;
-    font-weight: 700;
+    font-weight: 700;    
+}
+
+.mainDetalle .detalle .contenedorDetalle .textoDetalle p {
+    margin-bottom: 1rem;   
 }
 
 .mainDetalle .detalle .contenedorDetalle .textoDetalle h2 {
@@ -201,16 +205,9 @@
 
     .mainDetalle .detalle .contenedorDetalle .textoDetalle #productoras img{
         margin-top: 3rem;
-        width: 40px;
-        max-height: 40px;
+        max-width: 40px;
+        max-height: 25px;
     }
-}
-
-hr {
-    border: 1px solid #36799f;
-    width: 80%;
-    margin: 0 auto;
-    margin-top: 40px;
 }
 
 .btn-favorito {
