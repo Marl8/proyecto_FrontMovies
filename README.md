@@ -13,6 +13,9 @@ También se utilizó mockApi para simular la gestión de autenticación de usuar
 <img width="1255" height="860" alt="1" src="https://github.com/user-attachments/assets/3b45bf9a-46ba-4c77-882e-ad70f58485b6" />
 
 <br/>
+<br/>
 
-#### Proyecto realizado por:
-- Grupo 9
+> [!NOTE]
+> #### Proyecto realizado por:
+> - Grupo 9
+
